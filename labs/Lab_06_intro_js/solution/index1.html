@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>JS</title>
+</head>
+<body>
+<script>
+    //задание 1
+    let apple = 10;
+    console.log()
+    alert(apple);
+    console.log(apple);
+
+    let condition = 'Случайная строка';
+    console.log('Good game is ' + condition);
+    //Задание 2
+    let someInt = 9;
+    let someText = '100';
+    let someBool = true;
+    console.log(someText + someInt);
+    console.log(someText + someText);
+    console.log(someText + someBool);
+
+    console.log(someInt + someInt);
+    console.log(someInt + someText);
+    console.log(someInt + someBool);
+
+    console.log(someBool + someInt);
+    console.log(someBool + someText);
+    console.log(someBool + someBool);
+    //Задание 3
+    let arr = new Array(10);
+    for (let i = 0; i < arr.length; i++) {arr[i] = Math.round((Math.random()) * 100);}
+    arr = arr.filter(function(num) {
+        return num >= 0;
+    });
+    console.log(arr);
+    //Задание 4
+    function getRandomNumber() {
+        return Math.random();
+    }
+
+    let randomNumber = getRandomNumber();
+    console.log(randomNumber);
+
+    function multiplyArray(arr, num) {
+        return arr.map(function(element) {
+            return element * num;
+        });
+        }
+
+    let array = [1, 2, 3, 4, 5];
+    let multipliedArray = multiplyArray(array, 2);
+    console.log(multipliedArray);
+
+    let generateRandomWord = function() {
+        let words = ["apple", "banana", "cherry", "orange"];
+        let randomIndex = Math.floor(Math.random() * words.length);
+        return words[randomIndex];
+};
+console.log(generateRandomWord());
+
+//Задание 5
+    // Создание пустого объекта
+    let person = {};
+
+    // Добавление полей в объект
+    person.firstName = "Александр";
+    person.surname = "Обуваев";
+    person.patronymic = "Сергеевич";
+    person.birthday = "10.09.2003";
+    person.hobby = "Дизайн";
+    person.group = "A";
+
+    // Добавление метода в объект
+    person.getInfo = function() {
+        let fullName = this.surname + " " + this.firstName + " " + this.patronymic;
+        let age = new Date().getFullYear() - new Date(this.birthday).getFullYear();
+        return "ФИО: " + fullName + "\nгод рождения: " + this.birthday + "\nхобби: " + this.hobby + "\nвозраст: " + age;
+    };
+
+// Вызов метода и вывод результата через alert
+    alert(person.getInfo());
+
+    let salaries = {
+        "Александр": 5000,
+        "Игорь": 4500,
+        "Иван": 7000,
+        "Никита": 4000,
+        "Максим": 4800,
+    };
+
+    let managerSalaries = ["Александр", "Игорь", "Никита", "Максим"];
+    let totalSalary = 0;
+    let managerCount = 0;
+
+    for (let i = 0; i < managerSalaries.length; i++) {
+        let manager = managerSalaries[i];
+        if (salaries.hasOwnProperty(manager)) {
+            totalSalary += salaries[manager];
+            managerCount++;
+        }
+    }
+
+    let averageSalary = totalSalary / managerCount;
+    console.log(averageSalary);
+
+</script>
+</body>
+</html>
